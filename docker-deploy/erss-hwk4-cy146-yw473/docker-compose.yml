@@ -1,0 +1,26 @@
+version: '2'
+
+services:
+  db:
+      image: postgres
+      environment:
+              - POSTGRES_DB=exchangematching
+              - POSTGRES_USER=postgres
+              - POSTGRES_PASSWORD=passw0rd
+      expose:
+        - "5432"
+      volumes:
+            - ./database.sql:/docker-entrypoint-initdb.d/database.sql
+            - data-volume:/var/lib/postgresql/data
+  stockexchange:
+      build: ./src
+      user: root
+      command: "/myroot/runserver.sh"
+      volumes:
+        - ./logs:/var/log/erss
+      ports:
+        - "12345:12345"
+      depends_on: 
+        - db
+volumes:
+   data-volume: 

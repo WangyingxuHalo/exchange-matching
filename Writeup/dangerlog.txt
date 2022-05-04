@@ -1,0 +1,15 @@
+1.	We think about the cases that clients offer xml with no attributes when it requires attributes. But we do not implement this as we assume what clients offer will be correct.
+
+2.	We think about the cases when clients give incorrect length in the head of xml. However, we assume clients will give correct length in this project.
+
+3.	We think about the case when a client wants to sell the position that he/she doesn’t have. In this case, it will return error message.
+
+4.	We assume the input xml is legal in grammar. However, illegal grammar may cause program to crash. We do not handle this part.
+
+5.	We do not have security protection in handling incoming requests. For example, user A can cancel or query the order that user B requests.
+
+6.	In server part, we use multi-processing instead of multi-threading. It is because we use Python. And in Python multi-threading will not actually use multiple cores. Multi-threading enables us to fully utilize multi cores.
+
+7.  If users cancel a tranasaction id and this transaction has no open tranaction to cancel(1. no transaction 2. all executable), then server will response with an error tag, saying: no open order to cancel
+
+8. In general,  we limit the process number to a reasonable number so the machine won't have out of memory issue.
