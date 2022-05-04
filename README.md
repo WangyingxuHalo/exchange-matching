@@ -1,4 +1,4 @@
-# ECE 568 AS4 Exchange Matching
+# Exchange Matching Engine
 ## Introduction
 In this project, users can receive xml data to sell or buy stock. Each buy order can be matched to a proper sell order. Each sell order can be matched to a proper buy order.
 
